@@ -11,7 +11,7 @@ const allUsers = async (req, res) => {
 const userById = async (req, res) => {
   await Users.findOne({
     where: {
-      id: req.params.userId,
+      userId: req.params.userId,
     },
   });
 };
@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   await Users.findOneAndDelete({
       where: {
-          id:req.params.id
+          userId:req.params.id
       }
   });
 };
