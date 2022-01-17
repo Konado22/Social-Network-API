@@ -3,8 +3,11 @@ const app = require('express').Router();
 app.get('/', (req,res) =>{{
 
 }})
+app.get('/:id', (req,res) =>{{
+
+}})
 //update Thought
-app.put('', (req,res) =>{{
+app.put('/:id', (req,res) =>{{
 
 }})
 //create Thought
@@ -15,3 +18,4 @@ app.post('', (req,res) =>{{
 app.delete('', (req,res) =>{{
 
 }})
+module.exports = app;
