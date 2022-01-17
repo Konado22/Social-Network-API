@@ -1,20 +1,21 @@
-const {Schema, model} = require('mongoose')
+const { Schema, model } = require("mongoose");
 const Thoughts = new Schema({
-thoughtText : {
+  thoughtText: {
     type: String,
-    required:true,
+    required: true,
     //between 1 and 280 characters
-},
-createdAt: {
-    type:Date,
+  },
+  createdAt: {
+    type: Date,
     //default current date
     //getter method to format the timestamp on query
-},
-username: {
+  },
+  username: {
     type: String,
-    required: true
-},
-reactions: {
+    required: true,
+  },
+  reactions: {
     //array of nested documents created with the reactionSchema
-}
-})
+  },
+});
+module.exports = Thoughts;
