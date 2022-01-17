@@ -36,3 +36,4 @@ const deleteThought = async (req,res) => {
         }
     })
 }
+module.exports = getThoughts , thoughtById , updateThought , createThought , deleteThought ;
