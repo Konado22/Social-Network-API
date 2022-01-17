@@ -1,27 +1,19 @@
 const app = require("express").Router();
+const {
+  allUsers,
+  userById,
+  updateUser,
+  createUser,
+  deleteUser,
+} = require("../../models/User");
 //get user
-app.get("/", (req, res) => {
-  {
-    //get user by id
-  }
-});
-app.get("/:id", (req, res) => {
-  {
-  }
-});
+app.get("/", allUsers);
+//get user by id
+app.get("/:id", userById);
 //update user by id
-app.put("/:id", (req, res) => {
-  {
-  }
-});
+app.put("/:id", updateUser);
 //create user
-app.post("/createUser", (req, res) => {
-  {
-  }
-});
+app.post("/createUser", createUser);
 //delete user
-app.delete("/deleteUser", (req, res) => {
-  {
-  }
-});
+app.delete("/deleteUser", deleteUser);
 module.exports = app;

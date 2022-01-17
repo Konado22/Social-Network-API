@@ -1,26 +1,19 @@
 const app = require("express").Router();
+const {
+  getThoughts,
+  thoughtById,
+  updateThought,
+  createThought,
+  deleteThought,
+} = require("../../controllers/thoughtController");
 //get Thought
-app.get("/", (req, res) => {
-  {
-  }
-});
-app.get("/:id", (req, res) => {
-  {
-  }
-});
-//update Thought
-app.put("/:id", (req, res) => {
-  {
-  }
-});
+app.get("/", getThoughts);
+//get thought by id
+app.get("/:id", thoughtById);
+//update Thought by id
+app.put("/:id", updateThought);
 //create Thought
-app.post("", (req, res) => {
-  {
-  }
-});
+app.post("/", createThought);
 //delete Thought
-app.delete("", (req, res) => {
-  {
-  }
-});
+app.delete("/", deleteThought);
 module.exports = app;
