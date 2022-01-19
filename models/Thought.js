@@ -17,5 +17,11 @@ const Thoughts = new Schema({
   reactions: {
     //array of nested documents created with the reactionSchema
   },
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
+  id: false
 });
 module.exports = Thoughts;

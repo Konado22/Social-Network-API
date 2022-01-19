@@ -11,7 +11,7 @@ const allUsers = async (req, res) => {
 const userById = async (req, res) => {
   await Users.findOne({
     where: {
-      userId: req.params.userId,
+      _id: req.params.id,
     },
   });
 };
@@ -19,7 +19,7 @@ const userById = async (req, res) => {
 const updateUser = async (req, res) => {
   await Users.findOneAndUpdate({
     where: {
-      userId: req.body.userId,
+      _id: req.body.id,
       username: req.body.username,
       email: req.body.email,
       //.need thoughts and friends?
@@ -34,7 +34,7 @@ const createUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   await Users.findOneAndDelete({
       where: {
-          userId:req.params.id
+          _id:req.params.id
       }
   });
 };

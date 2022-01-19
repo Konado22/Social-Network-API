@@ -10,15 +10,24 @@ const Users = new Schema({
     type: String,
     required: true,
     unique: true,
-    //?
-    // vadilation:
-    //?
+    match: [/.+@.+\..+/, 'Must match an email address!']
   },
-  friends: {
+  friends: [{
+    type: Schema.Types.ObjectId,
+    ref:'users'
     //array of _id values referencing the Users model
-  },
-  thoughts: {
+  }],
+  thoughts: [{
+    type:Schema.Types.ObjectId,
+    ref: 'thoughts'
     //array of _id values referencing the Thoughts model
+  }],
+  
+},
+{
+  toJSON: {
+    virtuals: true,
   },
+  id: false
 });
 module.exports = Users;
