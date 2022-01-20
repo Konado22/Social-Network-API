@@ -20,7 +20,7 @@ This project was designed to start working with NOSQL to construct our databases
 all npm packages used:
 - express
 - mongodb
-- moment
+- mongoose
 
 ## <h2 id="usage">Usage</h2>
 feel free to clone/fork this assignment if you would like

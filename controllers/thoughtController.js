@@ -11,10 +11,10 @@ const getThoughts = async (req, res) => {
 const thoughtById = async (req, res) => {
   try {
     await Thoughts.findOne({
-      where: {
-        _id: req.params.thoughtId,
-      },
-    });
+      _id: req.params.id,
+    }) .populate({ path: 'thoughts'})
+    .populate({path: 'friends'})
+    ;
   } catch (error) {
     res.status(500).json(error);
   }
@@ -24,7 +24,7 @@ const updateThought = async (req, res) => {
   try {
     await Thoughts.FindOneAndUpdate({
       where: {
-        _id: req.params.thoughtId,
+        _id: req.params.id,
       },
     });
   } catch (error) {
@@ -51,7 +51,7 @@ const deleteThought = async (req, res) => {
   try {
     await Thoughts.delete({
       where: {
-        _id: req.params.thoughtId,
+        _id: req.params.id,
       },
     });
     res.status(200).json("Thought deleted");

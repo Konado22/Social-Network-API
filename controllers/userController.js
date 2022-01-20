@@ -1,4 +1,4 @@
-const { Users } = require("../models");
+const { Users, Thoughts } = require("../models");
 //get all users
 const allUsers = async (req, res) => {
   try {
@@ -18,8 +18,8 @@ const userById =  (req, res) => {
       .populate("thoughts")
       .populate("friends")
       .then((users) => {
-        const thisUser = {};
-        res.status(200).json(users);
+        const thisUser = {users};
+        res.status(200).json(thisUser);
       });
   } catch (error) {
     res.status(500).json(error);
