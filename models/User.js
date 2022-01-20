@@ -1,5 +1,5 @@
-const { Schema, Types } = require("mongoose");
-const Users = new Schema({
+const { Schema, model } = require("mongoose");
+const usersSchema = new Schema({
   username: {
     type: String,
     unique: true,
@@ -13,12 +13,12 @@ const Users = new Schema({
   },
   friends: [{
     type: Schema.Types.ObjectId,
-    ref:'users'
+    ref:'Users'
     //array of _id values referencing the Users model
   }],
   thoughts: [{
     type:Schema.Types.ObjectId,
-    ref: 'thoughts'
+    ref: 'Thoughts'
     //array of _id values referencing the Thoughts model
   }],
   
@@ -26,7 +26,9 @@ const Users = new Schema({
 {
   toJSON: {
     virtuals: true,
+    getters: true
   },
   id: false
 });
+const Users = model('Users', usersSchema);
 module.exports = Users;

@@ -9,16 +9,17 @@ const allUsers = async (req, res) => {
   }
 };
 //get user by id
-const userById = async (req, res) => {
+const userById =  (req, res) => {
   try {
-    const userById = await Users.find()
+    const userById = Users.findById({
+      _id: req.params.id
+    })
     userById
       .populate("thoughts")
       .populate("friends")
-      .select("-__v")
       .then((users) => {
-        const thisUser = { users };
-        res.status(200).json(user);
+        const thisUser = {};
+        res.status(200).json(users);
       });
   } catch (error) {
     res.status(500).json(error);
