@@ -1,4 +1,7 @@
-# Social-Network-API
+# Social-Network-API 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<img src="./assets/pic3.png">
+
 ## Table of contents
 - <a href="#walkthrough">Walkthrough Video</a>
 - <a href="#description">Description</a>
@@ -10,14 +13,15 @@
 <br>
 
 ## <h2 id="walkthrough">Walkthrough Video</h2>
-click <a target= _blank href="">here</a> to see a walkthrough video of the application
+click <a target= _blank href="https://watch.screencastify.com/v/K16J8d75pUHbQZNPm7ZL">here</a> to see a walkthrough video of the application
+<img src= "./assets/pic2.png">
 <br>
 
-## <h2 id="description">Description</h2>
+## <h2 id="description">Description</h2> 
 This project was designed to start working with NOSQL to construct our databases as well as connect to the server and handle requests. I have enjoyed getting to learn some more current platforms as well as better practices for building these databases. As as user the goal is to create a social media API that will handle various requests from users regarding their thoughts or friends on the platform. 
 
 ## <h2 id="install">Installation</h2>
-all npm packages used:
+all technologies used:
 - express
 - mongodb
 - mongoose
