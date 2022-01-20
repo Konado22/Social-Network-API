@@ -15,7 +15,7 @@ const userById = async (req, res) => {
       .populate("friends")
       .select("-__v")
       .then((users) => {
-        const user = {users}
+        const user = { users };
         res.status(200).json(user);
       });
   } catch (error) {
@@ -25,10 +25,12 @@ const userById = async (req, res) => {
 //update user
 const updateUser = async (req, res) => {
   try {
-    const updatedUser = await Users.findOneAndUpdate({ _id: req.params.id },
-    { $set: req.body },
-    { runValidators: true, new: true })
-    res.status(200).json(updatedUser)
+    const updatedUser = await Users.findOneAndUpdate(
+      { _id: req.params.id },
+      { $set: req.body },
+      { runValidators: true, new: true }
+    );
+    res.status(200).json(updatedUser);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -50,11 +52,11 @@ const deleteUser = async (req, res) => {
     await Users.findOneAndDelete({
       where: {
         _id: req.params.id,
-      }
-    })
-    res.status(200).json('The user has been deleted')
+      },
+    });
+    res.status(200).json("The user has been deleted");
   } catch (error) {
     res.status(500).json(error);
   }
 };
-module.exports = {allUsers, userById, updateUser, createUser, deleteUser};
+module.exports = { allUsers, userById, updateUser, createUser, deleteUser };
