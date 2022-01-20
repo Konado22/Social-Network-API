@@ -9,22 +9,30 @@ const allUsers = async (req, res) => {
 };
 //get user by id
 const userById = async (req, res) => {
-  await Users.findOne({
-    where: {
-      _id: req.params.id,
-    },
-  });
+  try {
+    await Users.findOne({
+      where: {
+        _id: req.params.id,
+      },
+    });  
+  } catch (error) {
+    res.status(500).json(error)
+  }
 };
 //update user
 const updateUser = async (req, res) => {
-  await Users.findOneAndUpdate({
-    where: {
-      _id: req.body.id,
-      username: req.body.username,
-      email: req.body.email,
-      //.need thoughts and friends?
-    },
-  });
+  try {
+    await Users.findOneAndUpdate({
+      where: {
+        _id: req.body.id,
+        username: req.body.username,
+        email: req.body.email,
+        //.need thoughts and friends?
+      },
+    });  
+  } catch (error) {
+    res.status(500).json(error)
+  }
 };
 //create user
 const createUser = async (req, res) => {
@@ -32,10 +40,14 @@ const createUser = async (req, res) => {
 };
 //delete user
 const deleteUser = async (req, res) => {
-  await Users.findOneAndDelete({
+  try {
+    await Users.findOneAndDelete({
       where: {
           _id:req.params.id
       }
   });
+  } catch (error) {
+    res.status(500).json(error)
+  }
 };
 module.exports = allUsers , userById , updateUser, createUser, deleteUser

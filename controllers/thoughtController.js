@@ -10,30 +10,47 @@ const getThoughts = async (req,res) => {
 }
 //get thought by id
 const thoughtById = async (req,res) => {
-    await Thoughts.findOne({
-        where: {
-            thoughtId:req.params.thoughtId
-        }
-    })
+    try {
+        await Thoughts.findOne({
+            where: {
+                _id:req.params.thoughtId
+            }
+        })    
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
 //update thought
 const updateThought = async (req,res) => {
-    await Thoughts.FindOneAndUpdate({
-        where: {
-            thoughtId: req.params.thoughtId
-        }
-    })
+    try {
+        await Thoughts.FindOneAndUpdate({
+            where: {
+                _id: req.params.thoughtId
+            }
+        })    
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
 //create thought
 const createThought = async (req,res) => {
-    await Thoughts.create(req.body)
+    try {
+        await Thoughts.create(req.body)
+
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
 //delete thought
 const deleteThought = async (req,res) => {
-    await Thoughts.delete({
-        where:{
-            thoughtId: req.params.thoughtId
-        }
-    })
+    try {
+        await Thoughts.delete({
+            where:{
+                thoughtId: req.params.thoughtId
+            }
+        })    
+    } catch (error) {
+        res.status(500).json(error)
+    }
 }
 module.exports = getThoughts , thoughtById , updateThought , createThought , deleteThought ;

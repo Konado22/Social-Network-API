@@ -11,6 +11,6 @@ router.route.get(getThoughts).post(createThought);
 //get thought by id
 router.route("/:id").get(thoughtById).put(updateThought).delete(deleteThought);
 //update Thought by id
-//create Thought
+//create Thought++
 //delete Thought
 module.exports = router;

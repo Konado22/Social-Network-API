@@ -10,7 +10,7 @@ const Users = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+@.+\..+/, 'Must match an email address!']
+    match: [/.+@.+\.\S+/, 'Must match an email address!']
   },
   friends: [{
     type: Schema.Types.ObjectId,
