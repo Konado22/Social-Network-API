@@ -2,23 +2,23 @@ const { Users, Thoughts } = require("../models");
 //get all users
 const allUsers = async (req, res) => {
   try {
-  const allUsers = await Users.find()
-    res.status(200).json(allUsers)
+    const allUsers = await Users.find();
+    res.status(200).json(allUsers);
   } catch (err) {
     console.log(res.status(500).json(err));
   }
 };
 //get user by id
-const userById =  (req, res) => {
+const userById = (req, res) => {
   try {
     const userById = Users.findById({
-      _id: req.params.id
-    })
+      _id: req.params.id,
+    });
     userById
       .populate("thoughts")
       .populate("friends")
       .then((users) => {
-        const thisUser = {users};
+        const thisUser = { users };
         res.status(200).json(thisUser);
       });
   } catch (error) {
@@ -41,7 +41,7 @@ const updateUser = async (req, res) => {
 //create user
 const createUser = async (req, res) => {
   try {
-   await Users.create(req.body).then(() => {
+    await Users.create(req.body).then(() => {
       res.status(200).json(req.body);
     });
   } catch (err) {

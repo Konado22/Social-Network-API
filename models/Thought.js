@@ -4,6 +4,8 @@ const thoughtsSchema = new Schema(
     thoughtText: {
       type: String,
       required: true,
+      maxlength: 280,
+      minlength: 1
       //between 1 and 280 characters
     },
     createdAt: {
@@ -16,9 +18,9 @@ const thoughtsSchema = new Schema(
       type: String,
       required: true,
     },
-    // reactions: {
-    //   //array of nested documents created with the reactionSchema
-    // }
+    reactions: {
+      //array of nested documents created with the reactionSchema
+    }
   },
   {
     toJSON: {

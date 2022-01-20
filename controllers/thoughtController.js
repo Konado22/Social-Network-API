@@ -9,17 +9,16 @@ const getThoughts = async (req, res) => {
   }
 };
 //get thought by id
-const thoughtById =  (req, res) => {
+const thoughtById = (req, res) => {
   try {
-    const singleThought =  Thoughts.findById({
+    const singleThought = Thoughts.findById({
       _id: req.params.id,
-    })
-     singleThought
-      .populate("users")
-      .populate("friends")
+    });
+    singleThought
+      .populate("reactions")
       .then((thoughts) => {
-        const thisThought = {thoughts}
-        res.status(200).json(thisThought)
+        const thisThought = { thoughts };
+        res.status(200).json(thisThought);
       });
   } catch (error) {
     res.status(500).json(error);
@@ -28,11 +27,12 @@ const thoughtById =  (req, res) => {
 //update thought
 const updateThought = async (req, res) => {
   try {
-    await Thoughts.FindOneAndUpdate(
+    const updatedThought = await Thoughts.FindOneAndUpdate(
       { _id: req.params.id },
       { $set: req.body },
       { runValidators: true, new: true }
-  );
+    );
+    res.status(200).json(updatedThought);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -40,8 +40,7 @@ const updateThought = async (req, res) => {
 //create thought
 const createThought = async (req, res) => {
   try {
-    await Thoughts.create(req.body)
-    .then( () => {
+    await Thoughts.create(req.body).then(() => {
       res.status(200).json(req.body);
     });
     {
@@ -57,9 +56,10 @@ const createThought = async (req, res) => {
 const deleteThought = async (req, res) => {
   try {
     await Thoughts.findOneAndDelete({
-      where:{
-      _id: req.params.id,
-    }});
+      where: {
+        _id: req.params.id,
+      },
+    });
     res.status(200).json("Thought deleted");
   } catch (error) {
     res.status(500).json(error);
