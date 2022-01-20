@@ -2,7 +2,7 @@ const { Users, Thoughts } = require("../models");
 //get all users
 const allUsers = async (req, res) => {
   try {
-    const allUsers = await Users.findAll()
+  const allUsers = await Users.find()
     res.status(200).json(allUsers)
   } catch (err) {
     console.log(res.status(500).json(err));
@@ -41,8 +41,8 @@ const updateUser = async (req, res) => {
 //create user
 const createUser = async (req, res) => {
   try {
-    await Users.create(req.body).then(() => {
-      res.json(req.body);
+   await Users.create(req.body).then(() => {
+      res.status(200).json(req.body);
     });
   } catch (err) {
     res.status(500).json(err);
