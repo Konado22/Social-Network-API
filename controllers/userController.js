@@ -2,7 +2,8 @@ const { Users } = require("../models");
 //get all users
 const allUsers = async (req, res) => {
   try {
-    await Users.findAll().then(console.log(res));
+    const allUsers = await Users.findAll()
+    res.status(200).json(allUsers)
   } catch (err) {
     console.log(res.status(500).json(err));
   }
@@ -10,12 +11,13 @@ const allUsers = async (req, res) => {
 //get user by id
 const userById = async (req, res) => {
   try {
-    const users = await Users.find()
+    const userById = await Users.find()
+    userById
       .populate("thoughts")
       .populate("friends")
       .select("-__v")
       .then((users) => {
-        const user = { users };
+        const thisUser = { users };
         res.status(200).json(user);
       });
   } catch (error) {
