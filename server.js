@@ -2,7 +2,7 @@ const express = require("express");
 const PORT =process.env.PORT || 3001;
 const db = require("./config/connection");
 const routes = require("./routes");
-const app = require(express());
+const app = require('express').Router();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);

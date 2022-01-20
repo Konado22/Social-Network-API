@@ -10,14 +10,12 @@ const allUsers = async (req, res) => {
 //get user by id
 const userById = async (req, res) => {
   try {
-    await Users.find({})
+    const users = await Users.find()
       .populate("thoughts")
       .populate("friends")
       .select("-__v")
       .then((users) => {
-        const user = {
-          users
-        }
+        const user = {users}
         res.status(200).json(user);
       });
   } catch (error) {
@@ -59,4 +57,4 @@ const deleteUser = async (req, res) => {
     res.status(500).json(error);
   }
 };
-(module.exports = allUsers), userById, updateUser, createUser, deleteUser;
+module.exports = {allUsers, userById, updateUser, createUser, deleteUser};

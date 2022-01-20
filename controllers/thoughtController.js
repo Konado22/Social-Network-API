@@ -53,4 +53,4 @@ const deleteThought = async (req,res) => {
         res.status(500).json(error)
     }
 }
-module.exports = getThoughts , thoughtById , updateThought , createThought , deleteThought ;
+module.exports = {getThoughts , thoughtById , updateThought , createThought , deleteThought} ;
