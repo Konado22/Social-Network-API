@@ -10,10 +10,11 @@ const getThoughts = async (req, res) => {
 //get thought by id
 const thoughtById = async (req, res) => {
   try {
-    await Thoughts.findOne({
+    await Thoughts.findById({
       _id: req.params.id,
-    }) .populate({ path: 'thoughts'})
-    .populate({path: 'friends'})
+    }) 
+    .populate('thoughts')
+    .populate('friends')
     ;
   } catch (error) {
     res.status(500).json(error);
