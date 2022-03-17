@@ -37,6 +37,7 @@ all technologies used:
 - express
 - mongodb
 - mongoose
+you will need node to install dependencies in the package.json file using the command npm i or npm install. At root level of project please run the command npm run start. It will start the server for the application. From there insomnia will need to be used to test routes as needed
 
 ## <h2 id="usage">Usage</h2>
 feel free to clone/fork this assignment if you would like
