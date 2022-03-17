@@ -19,6 +19,10 @@ AS A social media startup
 I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 ```
+## Features
+- Fullstack application using express server
+- Connect users 
+- interact with content by other users
 
 ## <h2 id="walkthrough">Walkthrough Video</h2>
 click <a target= _blank href="https://watch.screencastify.com/v/K16J8d75pUHbQZNPm7ZL">here</a> to see a walkthrough video of the application
